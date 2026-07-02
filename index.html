@@ -24,6 +24,11 @@
     --orange-dark:#DB7E00;
     --orange-soft:#FFF1DB;
     --yellow:#FFC800;
+    --purple-soft:#F3F0FF;
+    --purple-border:#CDBFFF;
+    --purple-ink:#4B3B99;
+    --teal:#0E9488;
+    --teal-dark:#0B7A70;
     --radius-lg:22px;
     --radius-md:14px;
     --radius-sm:10px;
@@ -46,7 +51,7 @@
     *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
   }
 
-  .app{ width:100%; max-width:440px; margin:0 auto; }
+  .app{ width:100%; max-width:880px; margin:0 auto; }
 
   /* ---------- Header ---------- */
   .app-header{
@@ -58,21 +63,21 @@
   }
   .brand{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
   .brand .logo{
-    width:36px; height:36px; border-radius:11px;
+    width:38px; height:38px; border-radius:11px;
     background:var(--blue);
     display:flex; align-items:center; justify-content:center;
-    color:#fff; font-weight:800; font-size:17px; flex:none;
+    color:#fff; font-weight:800; font-size:18px; flex:none;
     font-family:var(--font-head);
     box-shadow:0 3px 0 var(--blue-dark);
   }
-  .brand h1{ font-family:var(--font-head); font-size:19px; font-weight:800; margin:0; }
-  .brand p{ margin:1px 0 0; font-size:12px; color:var(--ink-soft); font-weight:700; }
+  .brand h1{ font-family:var(--font-head); font-size:20px; font-weight:800; margin:0; }
+  .brand p{ margin:1px 0 0; font-size:13px; color:var(--ink-soft); font-weight:700; }
 
   .progress-wrap{ display:none; }
   .progress-wrap.show{ display:block; }
   .progress-track{ height:10px; border-radius:999px; background:var(--surface-soft); border:2px solid var(--border); overflow:hidden; }
   .progress-fill{ height:100%; width:0%; background:var(--green); border-radius:999px; transition:width .4s ease; }
-  .progress-label{ font-size:11.5px; font-weight:800; color:var(--ink-soft); margin-top:6px; text-transform:uppercase; letter-spacing:.03em; }
+  .progress-label{ font-size:12.5px; font-weight:800; color:var(--ink-soft); margin-top:8px; text-transform:uppercase; letter-spacing:.03em; }
 
   /* ---------- Stage cards (uniform size) ---------- */
   .screen{ display:none; }
@@ -83,8 +88,8 @@
     background:var(--surface);
     border:2px solid var(--border);
     border-radius:var(--radius-lg);
-    padding:18px 20px 20px;
-    height:560px;
+    padding:18px 24px 20px;
+    height:600px;
     display:flex;
     flex-direction:column;
   }
@@ -96,24 +101,28 @@
   .back-btn{
     display:inline-flex; align-items:center; gap:5px;
     background:var(--surface-soft); border:2px solid var(--border); color:var(--ink-soft);
-    font-family:var(--font-body); font-weight:800; font-size:12.5px;
+    font-family:var(--font-body); font-weight:800; font-size:13px;
     padding:6px 12px; border-radius:999px; cursor:pointer;
   }
   .back-btn:hover{ border-color:var(--blue); color:var(--blue-dark); }
-  .stage-title{ font-family:var(--font-head); font-weight:700; font-size:12.5px; color:var(--ink-soft); letter-spacing:.02em; text-transform:uppercase; }
+  .stage-title{ font-family:var(--font-head); font-weight:700; font-size:13px; color:var(--ink-soft); letter-spacing:.02em; text-transform:uppercase; }
 
-  /* ---------- Intro ---------- */
+  /* ---------- Intro / Scenario ---------- */
   .intro-body{ flex:1; display:flex; flex-direction:column; justify-content:center; overflow-y:auto; }
-  .intro-body h2{ font-family:var(--font-head); font-size:26px; font-weight:800; margin:0 0 12px; }
-  .intro-body p{ color:var(--ink-soft); font-size:14px; margin:0 0 11px; font-weight:600; }
+  .intro-body h2{ font-family:var(--font-head); font-size:27px; font-weight:800; margin:0 0 13px; }
+  .intro-body p{ color:var(--ink-soft); font-size:15.5px; margin:0 0 12px; font-weight:600; }
   .intro-actions{ margin-top:8px; }
+  .congrats-actions{ display:flex; gap:16px; justify-content:center; margin-top:10px; }
+  .congrats-action{ display:flex; flex-direction:column; align-items:center; flex:0 0 140px; max-width:140px; }
+  .congrats-action .btn{ width:100%; padding-left:12px; padding-right:12px; }
+  .congrats-action .cap{ margin-top:9px; font-size:12px; font-weight:700; color:var(--ink-soft); text-align:center; line-height:1.4; }
 
   /* ---------- Buttons ---------- */
   .btn{
     font-family:var(--font-body);
-    font-weight:800; font-size:14px;
+    font-weight:800; font-size:15px;
     border:none; border-radius:var(--radius-sm);
-    padding:11px 22px; cursor:pointer; color:#fff;
+    padding:12px 23px; cursor:pointer; color:#fff;
     background:var(--blue);
     box-shadow:0 4px 0 var(--blue-dark);
     transition:transform .05s ease, box-shadow .05s ease;
@@ -125,15 +134,39 @@
   .btn.green:active{ box-shadow:0 1px 0 var(--green-dark); }
   .btn.orange{ background:var(--orange); box-shadow:0 4px 0 var(--orange-dark); }
   .btn.orange:active{ box-shadow:0 1px 0 var(--orange-dark); }
+  .btn.hint{ background:var(--orange); color:#fff; box-shadow:0 4px 0 var(--orange-dark); }
+  .btn.hint:active{ box-shadow:0 1px 0 var(--orange-dark); }
+  .btn.wide{ width:100%; }
 
-  .next-wrap{ display:flex; justify-content:flex-end; margin-top:12px; flex:none; }
+  .next-wrap{ display:flex; justify-content:flex-end; margin-top:16px; flex:none; gap:10px; }
   .next-wrap.hidden{ display:none; }
+  .next-wrap.split{ justify-content:space-between; }
 
   .btn.pulse{ animation:pulse 1.4s ease-in-out infinite; }
   @keyframes pulse{
     0%,100%{ box-shadow:0 4px 0 var(--green-dark), 0 0 0 0 rgba(88,204,2,.4); }
     50%{ box-shadow:0 4px 0 var(--green-dark), 0 0 0 7px rgba(88,204,2,0); }
   }
+
+  /* ---------- Instruction card (text + separator + action, single row) ---------- */
+  .instruction-card{
+    display:flex; align-items:center; gap:18px;
+    border:1.5px solid #F5C989;
+    border-radius:18px;
+    padding:16px 20px;
+    margin:2px 0 16px;
+    background:var(--orange-soft);
+    flex:none;
+  }
+  .intro-top{ display:flex; align-items:center; gap:20px; }
+  .intro-content{ flex:1; min-width:0; }
+  .intro-content h2{ margin-top:0; }
+  .instruction-text{ display:flex; align-items:center; gap:10px; font-size:14.5px; font-weight:700; color:var(--orange-dark); margin:0; flex:1; }
+  .instruction-text .ic{ flex:none; font-size:17px; line-height:1.3; }
+  .instruction-sep{ width:1.5px; align-self:stretch; min-height:34px; background:#E0AD63; flex:none; }
+  .instruction-action{ flex:none; }
+  .instruction-action-row{ display:flex; align-items:center; gap:18px; flex:none; }
+  .instruction-action-row.hidden{ display:none; }
 
   /* ---------- Chat UI ---------- */
   .chat-window{
@@ -143,6 +176,9 @@
   }
   .chat-window::-webkit-scrollbar{ width:6px; }
   .chat-window::-webkit-scrollbar-thumb{ background:var(--border); border-radius:8px; }
+  .chat-window.centered{ align-items:center; justify-content:center; }
+  .chat-messages{ display:flex; flex-direction:column; gap:11px; width:100%; }
+  .chat-messages:empty{ display:none; }
 
   .msg{ display:flex; gap:8px; max-width:100%; opacity:0; animation:pop .3s ease forwards; }
   @keyframes pop{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
@@ -163,12 +199,12 @@
   .bubble{
     background:var(--surface-soft);
     border:2px solid var(--border);
-    border-radius:14px; padding:10px 13px;
-    font-size:13.5px; max-width:83%;
+    border-radius:14px; padding:11px 14px;
+    font-size:14.5px; max-width:75%;
     position:relative; font-weight:600;
   }
   .bubble .who{
-    font-size:10.5px; font-weight:800; letter-spacing:.02em;
+    font-size:11px; font-weight:800; letter-spacing:.02em;
     color:var(--ink-soft); text-transform:uppercase; margin-bottom:3px; display:block;
   }
   .msg.user{ flex-direction:row-reverse; }
@@ -200,95 +236,116 @@
 
   .composer{ display:flex; gap:8px; align-items:center; border-top:2px solid var(--border); padding-top:12px; flex:none; }
   .composer input[type=text]{
-    flex:1; font-family:var(--font-body); font-weight:700; font-size:13.5px;
-    padding:10px 14px; border-radius:999px;
+    flex:1; font-family:var(--font-body); font-weight:700; font-size:14px;
+    padding:11px 15px; border-radius:999px;
     border:2px solid var(--border); background:var(--surface-soft); color:var(--ink);
   }
-  .composer input[readonly]{ color:var(--ink-soft); }
+  .composer input[readonly]{ color:var(--ink); }
   .send-btn{
-    width:38px; height:38px; border-radius:50%; border:none;
+    width:40px; height:40px; border-radius:50%; border:none;
     background:var(--blue); color:#fff; cursor:pointer; flex:none;
-    display:flex; align-items:center; justify-content:center; font-size:15px;
+    display:flex; align-items:center; justify-content:center; font-size:16px;
     box-shadow:0 3px 0 var(--blue-dark);
   }
   .send-btn:active{ transform:translateY(2px); box-shadow:0 1px 0 var(--blue-dark); }
   .send-btn:disabled{ background:#E3E7ED; box-shadow:none; cursor:not-allowed; }
 
-  .prompt-box{
-    display:none; align-items:flex-start; gap:8px;
-    background:var(--orange-soft); border:2px dashed var(--orange);
-    border-radius:var(--radius-md); padding:11px 14px; margin-bottom:10px;
-    font-size:13px; font-weight:700; color:#7A4E00; flex:none;
+  .chat-window.centered .composer{
+    border-top:none; padding-top:0; width:100%; max-width:480px;
+    background:var(--surface); border:2px solid var(--border); border-radius:999px;
+    padding:6px 6px 6px 18px; box-shadow:0 6px 18px rgba(40,60,100,.08);
   }
-  .prompt-box.show{ display:flex; }
-  .prompt-box .ic{ font-size:16px; flex:none; }
 
-  .pick-confirm{
-    display:none; align-items:center; gap:7px;
-    background:var(--green-soft); border:2px solid #C7EFA0;
-    border-radius:var(--radius-md); padding:9px 13px; margin-bottom:10px;
-    font-size:13px; color:#2E6A00; font-weight:800; flex:none;
+  /* ---------- Choice / Review page ---------- */
+  .choice-scroll{ flex:1; min-height:0; overflow-y:auto; padding-right:2px; }
+  .choice-card{
+    background:var(--blue-soft); border:2px solid #C7E9FA;
+    border-radius:var(--radius-md); padding:15px 17px; margin-bottom:18px;
   }
-  .pick-confirm.show{ display:flex; }
+  .choice-card .tag{ font-size:11px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; color:var(--blue-dark); display:block; margin-bottom:6px; }
+  .choice-card .fact-title{ font-weight:800; margin-bottom:4px; font-size:15px; }
+  .choice-card .fact-text{ font-size:13.5px; color:var(--ink-soft); font-weight:600; }
+
+  .choice-actions{ display:flex; gap:20px; margin-bottom:16px; justify-content:center; }
+  .choice-action{ flex:0 0 130px; max-width:130px; display:flex; flex-direction:column; align-items:center; }
+  .choice-action .sq-btn{
+    width:100%; aspect-ratio:1/1; border:none; border-radius:18px; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    color:#fff; font-family:var(--font-body); font-weight:800; font-size:13px;
+    transition:transform .05s ease, box-shadow .05s ease;
+  }
+  .choice-action .sq-btn:active{ transform:translateY(3px); }
+  .choice-action .sq-btn .sq-icon{ font-size:46px; }
+  .choice-action .sq-btn.blue{ background:var(--blue); box-shadow:0 4px 0 var(--blue-dark); }
+  .choice-action .sq-btn.blue:active{ box-shadow:0 1px 0 var(--blue-dark); }
+  .choice-action .sq-btn.green{ background:var(--green); box-shadow:0 4px 0 var(--green-dark); }
+  .choice-action .sq-btn.green:active{ box-shadow:0 1px 0 var(--green-dark); }
+  .choice-action .sq-btn.orange{ background:var(--orange); box-shadow:0 4px 0 var(--orange-dark); }
+  .choice-action .sq-btn.orange:active{ box-shadow:0 1px 0 var(--orange-dark); }
+  .choice-action .cap{ margin-top:9px; font-size:13px; font-weight:700; color:var(--ink-soft); text-align:center; }
 
   /* ---------- Discuss ---------- */
   .chosen-card{
     background:var(--blue-soft); border:2px solid #C7E9FA;
     border-radius:var(--radius-md); padding:12px 14px; margin-bottom:10px; flex:none;
   }
-  .chosen-card .tag{ font-size:10.5px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; color:var(--blue-dark); display:block; margin-bottom:5px; }
-  .chosen-card .fact-title{ font-weight:800; margin-bottom:3px; font-size:13.5px; }
-  .chosen-card .fact-text{ font-size:12.5px; color:var(--ink-soft); font-weight:600; }
+  .chosen-card .tag{ font-size:11px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; color:var(--blue-dark); display:block; margin-bottom:5px; }
+  .chosen-card .fact-title{ font-weight:800; margin-bottom:3px; font-size:14.5px; }
+  .chosen-card .fact-text{ font-size:13px; color:var(--ink-soft); font-weight:600; }
 
   .see-more{
     display:flex; align-items:center; gap:8px; margin-bottom:10px; flex:none;
-    font-size:11.5px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.03em;
+    font-size:12px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.03em;
   }
   .see-more::before, .see-more::after{ content:""; flex:1; height:2px; background:var(--border); border-radius:2px; }
 
   /* ---------- Evaluate ---------- */
   .eval-body{ flex:1; display:flex; flex-direction:column; min-height:0; }
-  .eval-body h2{ font-family:var(--font-head); font-size:19px; font-weight:800; margin:0 0 5px; }
-  .eval-body > p.hint{ color:var(--ink-soft); font-size:13.5px; margin:0 0 10px; font-weight:600; }
+  .eval-body h2{ font-family:var(--font-head); font-size:21px; font-weight:800; margin:0 0 4px; }
   textarea{
-    width:100%; flex:1; min-height:90px;
-    font-family:var(--font-body); font-weight:600; font-size:13.5px;
+    width:100%; min-height:90px;
+    font-family:var(--font-body); font-weight:600; font-size:14.5px;
     border:2px solid var(--border); border-radius:var(--radius-md);
     padding:12px; resize:none; background:var(--surface-soft); color:var(--ink);
   }
   textarea:focus{ outline:none; border-color:var(--blue); }
-  .word-count{ font-size:12px; color:var(--ink-soft); margin-top:7px; flex:none; font-weight:700; }
+  .word-count{ font-size:13px; color:var(--ink-soft); margin-top:7px; flex:none; font-weight:700; }
   .word-count.ok{ color:var(--green-dark); }
 
-  .eval-scroll{ flex:1; min-height:0; overflow-y:auto; display:flex; flex-direction:column; }
+  .eval-scroll{ flex:1; min-height:0; overflow-y:auto; display:flex; flex-direction:column; padding-right:2px; }
+  .eval-scroll .instruction-card{ border:none; background:transparent; padding:0; margin:2px 0 10px; }
+  .eval-scroll .instruction-text{ color:var(--blue-dark); font-family:var(--font-head); font-weight:700; font-size:15.5px; }
 
-  .feedback{
-    display:none; border-radius:var(--radius-md);
-    padding:13px 15px; margin-top:12px; border:2px solid var(--border);
-    background:var(--surface-soft); flex:none;
+  .highlight-card{
+    background:var(--surface-soft); border:2px solid var(--border);
+    border-radius:var(--radius-md); padding:14px 16px; margin-bottom:6px;
   }
-  .feedback.show{ display:block; animation:fadeIn .3s ease; }
-  .feedback h3{ font-family:var(--font-head); font-size:14.5px; font-weight:700; margin:0 0 6px; color:var(--ink); }
-  .feedback p{ margin:0; font-size:13px; color:var(--ink-soft); font-weight:600; }
-  .feedback-actions{ display:flex; justify-content:flex-end; margin-top:10px; }
+  .highlight-card .fact-title{ font-weight:800; font-size:14.5px; margin-bottom:7px; color:var(--ink); }
+  .highlight-card .fact-text{ font-size:14px; line-height:1.85; }
+  .hl-sentence{ cursor:pointer; border-radius:5px; padding:2px 2px; transition:background .1s ease; }
+  .hl-sentence:hover{ background:var(--blue-soft); }
+  .hl-sentence.hl{ background:var(--yellow); font-weight:800; }
 
-  /* ---------- Finish modal ---------- */
+  /* ---------- Modals ---------- */
   .modal-overlay{
     display:none; position:fixed; inset:0; background:rgba(58,68,87,.55);
     align-items:center; justify-content:center; padding:18px; z-index:50;
   }
   .modal-overlay.show{ display:flex; animation:fadeIn .25s ease; }
   .modal-card{
-    background:#fff; border:2px solid var(--border); border-radius:24px; padding:28px 26px; max-width:340px; width:100%;
+    background:#fff; border:2px solid var(--border); border-radius:24px; padding:28px 26px; max-width:360px; width:100%;
     text-align:center;
   }
   .modal-icon{
     width:56px; height:56px; border-radius:50%; margin:0 auto 14px;
     background:var(--green-soft); color:var(--green-dark); display:flex; align-items:center; justify-content:center;
-    font-size:26px; font-weight:800; border:2px solid #C7EFA0;
+    font-size:27px; font-weight:800; border:2px solid #C7EFA0;
   }
-  .modal-card h3{ font-family:var(--font-head); font-size:20px; font-weight:800; margin:0 0 8px; }
-  .modal-card p{ font-size:13.5px; color:var(--ink-soft); margin:0 0 18px; font-weight:600; }
+  .modal-card h3{ font-family:var(--font-head); font-size:21px; font-weight:800; margin:0 0 8px; }
+  .modal-card p{ font-size:14.5px; color:var(--ink-soft); margin:0 0 18px; font-weight:600; }
+  .modal-card .hint-list{ text-align:left; margin:0 0 20px; padding-left:20px; font-size:14px; color:var(--ink-soft); font-weight:700; }
+  .modal-card .hint-list li{ margin-bottom:6px; }
+  .modal-card .hint-list li:last-child{ margin-bottom:0; }
 </style>
 </head>
 <body>
@@ -305,7 +362,7 @@
     </div>
     <div class="progress-wrap" id="progressWrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">Step 1 of 3 — Chat</div>
+      <div class="progress-label" id="progressLabel">Step 1 of 8 — Scenario</div>
     </div>
   </div>
 
@@ -316,9 +373,32 @@
         <h2>Biased!</h2>
         <p>As explained in this course, one always needs to be critical with the information they receive when engaging with AI systems. AI tools like Gemini or ChatGPT are always at risk of generating biased responses.</p>
         <p>Information becomes biased when it tells you only one side of the story rather than presenting an objective, balanced view. Biased content is often full of stereotypes or leaves out crucial facts about a particular context.</p>
-        <p>In this task, you'll practice evaluating an AI chatbot's output for bias. Let's start chatting.</p>
+        <p>In this task, you'll practice evaluating an AI chatbot's output for bias. Let's get started.</p>
         <div class="intro-actions">
           <button class="btn" id="startBtn">Start</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO -->
+  <div class="screen" id="screen-scenario">
+    <div class="stage-card">
+      <div class="stage-topbar">
+        <button class="back-btn" id="backToIntroFromScenario">← Back</button>
+        <span class="stage-title">Scenario</span>
+      </div>
+      <div class="intro-body">
+        <div class="intro-top">
+          <div class="intro-content">
+            <h2>Scenario</h2>
+            <p>You are a university student and tasked to make a presentation about Uzbekistan to your international friends. To make your presentation interesting, you want to include some funny facts about the country.</p>
+            <p>You decide to use ChatGPT to come up with ideas. However, you also need to ensure that anything you share with the audience about Uzbekistan truly represents its culture. After all, you don't want to distort the people's view of the country.</p>
+            <p>This might be a bit tough task for you, as AI systems are sometimes good at generating content that is, for example, full of stereotypes. Let's see if you can handle this!</p>
+          </div>
+        </div>
+        <div class="intro-actions">
+          <button class="btn" id="jumpToChatBtn">Jump to ChatGPT</button>
         </div>
       </div>
     </div>
@@ -328,28 +408,126 @@
   <div class="screen" id="screen-chat">
     <div class="stage-card">
       <div class="stage-topbar">
-        <button class="back-btn" id="backToIntro">← Back</button>
+        <button class="back-btn" id="backToScenario">← Back</button>
         <span class="stage-title">Chat</span>
       </div>
 
-      <div class="chat-window" id="chatWindow"></div>
-
-      <div class="prompt-box" id="promptBox">
-        <span class="ic">❓</span>
-        <span>Which response is more likely to be biased? Tap a response above to select it.</span>
+      <div class="chat-window centered" id="chatWindow">
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="composer" id="chatComposer1">
+          <input type="text" id="chatInput1" value="" readonly>
+          <button class="send-btn" id="chatSend1" title="Send" disabled>➤</button>
+        </div>
       </div>
 
-      <div class="pick-confirm" id="pickConfirm">
-        <span>✓</span><span id="pickConfirmText"></span>
+      <div class="instruction-card" id="chatInstructionBlock" style="display:none;">
+        <div class="instruction-text"><span id="promptBoxText"></span></div>
+        <div class="instruction-sep"></div>
+        <div class="instruction-action" id="chatNextWrap">
+          <button class="btn green pulse" id="chatNextBtn">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRAISE / TRANSITION STAGE -->
+  <div class="screen" id="screen-praise">
+    <div class="stage-card">
+      <div class="stage-topbar">
+        <button class="back-btn" id="backToChatFromPraise">← Back</button>
+        <span class="stage-title">Nice Work</span>
+      </div>
+      <div class="intro-body">
+        <div class="intro-top">
+          <div class="intro-content">
+            <p>Okay, great job! You have used ChatGPT to produce some funny facts about Uzbekistan. It is so fast and easy! Right? That is what makes using AI exciting! If it wasn't AI, it would take you hours to find such stuff online with Google...</p>
+            <p>Can you start using the funny facts in your presentation now? Not yet!</p>
+            <p>As mentioned in the course, just because the text AI generated is so fluent and smooth, it does not mean it is true. Therefore, the next step for you is to check AI's responses one more time and identify possible biased information.</p>
+          </div>
+        </div>
+        <div class="intro-actions">
+          <button class="btn" id="letsCheckBtn">Let's check</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT REVIEW STAGE (facts shown again, now selectable) -->
+  <div class="screen" id="screen-chat-review">
+    <div class="stage-card">
+      <div class="stage-topbar">
+        <button class="back-btn" id="backToPraiseFromChatReview">← Back</button>
+        <span class="stage-title">Chat Review</span>
       </div>
 
-      <div class="composer" id="chatComposer1">
-        <input type="text" id="chatInput1" value="Tell me three funny facts about Uzbekistan people" readonly>
-        <button class="send-btn" id="chatSend1" title="Send">➤</button>
+      <div class="chat-window" id="chatReviewWindow"></div>
+
+      <div class="instruction-card">
+        <div class="instruction-text"><span>Based on your background knowledge and intuition, which response is more likely to include biased information? Select an option.</span></div>
+        <div class="instruction-action-row hidden" id="chatReviewNextWrap">
+          <div class="instruction-sep"></div>
+          <div class="instruction-action">
+            <button class="btn green pulse" id="chatReviewNextBtn">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL PRAISE / TRANSITION STAGE -->
+  <div class="screen" id="screen-final-praise">
+    <div class="stage-card">
+      <div class="stage-topbar">
+        <button class="back-btn" id="backToChatReviewFromFinalPraise">← Back</button>
+        <span class="stage-title">Nice Work</span>
+      </div>
+      <div class="intro-body">
+        <div class="intro-top">
+          <div class="intro-content">
+            <p>You have done a great job by identifying a response that may have some possible biases. Remember that AI systems cannot distinguish between facts and fictions; it will be you who will be solely responsible for the accuracy of any information, but not ChatGPT.</p>
+            <p>Therefore, the final step for you is to justify your choice by giving reasons why you think the selected response might be biased. This shows your ability to evaluate AI's output, a survival skill for today's world.</p>
+          </div>
+        </div>
+        <div class="intro-actions">
+          <button class="btn" id="readyToExplainBtn">Ready to explain!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOICE / REVIEW STAGE -->
+  <div class="screen" id="screen-choice">
+    <div class="stage-card">
+      <div class="stage-topbar">
+        <button class="back-btn" id="backToFinalPraiseFromChoice">← Back</button>
+        <span class="stage-title">Review</span>
       </div>
 
-      <div class="next-wrap hidden" id="chatNextWrap">
-        <button class="btn green pulse" id="chatNextBtn">Next: Discuss it</button>
+      <div class="choice-scroll">
+        <div class="choice-card" id="choiceCard">
+          <span class="tag">Your choice</span>
+          <div class="fact-title" id="choiceTitle"></div>
+          <div class="fact-text" id="choiceText"></div>
+        </div>
+
+        <div class="choice-actions">
+          <div class="choice-action">
+            <button class="sq-btn blue" id="explainBtn"><span class="sq-icon">🗣️</span>Explain</button>
+            <div class="cap">I'm ready to explain my choice</div>
+          </div>
+          <div class="choice-action">
+            <button class="sq-btn green" id="verifyBtn"><span class="sq-icon">🔍</span>Verify</button>
+            <div class="cap">I would like to see what Uzbek people say about my answer</div>
+          </div>
+          <div class="choice-action">
+            <button class="sq-btn orange" id="changeBtn"><span class="sq-icon">🔄</span>Change</button>
+            <div class="cap">I would like to change my answer</div>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-text"><span>You may want to check if you have selected the correct answer by clicking the "Verify" button. Want to change your answer? click the "Change" button.</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -358,7 +536,7 @@
   <div class="screen" id="screen-discuss">
     <div class="stage-card">
       <div class="stage-topbar">
-        <button class="back-btn" id="backToChat">← Back</button>
+        <button class="back-btn" id="backToChoiceFromDiscuss">← Back</button>
         <span class="stage-title">Discuss</span>
       </div>
 
@@ -372,8 +550,8 @@
 
       <div class="chat-window" id="discussWindow"></div>
 
-      <div class="next-wrap hidden" id="discussNextWrap">
-        <button class="btn" id="discussNextBtn">Next: Evaluate</button>
+      <div class="instruction-card">
+        <div class="instruction-text"><span>Study the group discussion and decide whether it confirms your choice or rejects it. After that, return to the previous page to continue.</span></div>
       </div>
     </div>
   </div>
@@ -382,35 +560,80 @@
   <div class="screen" id="screen-evaluate">
     <div class="stage-card">
       <div class="stage-topbar">
-        <button class="back-btn" id="backToDiscuss">← Back</button>
+        <button class="back-btn" id="backToChoiceFromEvaluate">← Back</button>
         <span class="stage-title">Evaluate</span>
       </div>
 
       <div class="eval-body">
-        <h2>Your turn to evaluate</h2>
-        <p class="hint">Based on the group chat, do you think the AI response was biased?</p>
-
         <div class="eval-scroll">
-          <textarea id="evalText" placeholder="Write at least 20 words…"></textarea>
-          <p class="word-count" id="wordCount">0 / 20 words</p>
 
-          <div class="feedback" id="feedback">
-            <h3 id="feedbackTitle"></h3>
-            <p id="feedbackBody"></p>
-            <div class="feedback-actions">
-              <button class="btn orange" id="retryBtn" style="display:none;">Retry</button>
-              <button class="btn green" id="finishBtn" style="display:none;">Finish</button>
-            </div>
+          <h2>Your turn to evaluate</h2>
+
+          <div class="instruction-card">
+            <div class="instruction-text"><span>Step 1. Identify and highlight the part of the text that you think contains a bias.</span></div>
           </div>
+
+          <div class="highlight-card">
+            <div class="fact-title" id="evalFactTitle"></div>
+            <div class="fact-text" id="evalFactText"></div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-text"><span>Step 2. Why do you think the selected AI response might be biased? Explain your answer below.</span></div>
+          </div>
+
+          <textarea id="evalText" placeholder="Write at least 30 words…"></textarea>
+          <p class="word-count" id="wordCount">0 / 30 words</p>
         </div>
 
-        <div class="next-wrap" id="submitWrap">
+        <div class="next-wrap split" id="submitWrap">
+          <button class="btn hint" id="hintBtn">HINT</button>
           <button class="btn" id="submitBtn" disabled>Submit answer</button>
         </div>
       </div>
     </div>
   </div>
+  <!-- CONGRATS / COMPLETION STAGE -->
+  <div class="screen" id="screen-congrats">
+    <div class="stage-card">
+      <div class="stage-topbar">
+        <button class="back-btn" id="backToEvaluateFromCongrats">← Back</button>
+        <span class="stage-title">Complete</span>
+      </div>
+      <div class="intro-body">
+        <div class="intro-top">
+          <div class="intro-content">
+            <p>Good job! Now you have taken one step to become a critical user of AI. You did not simply copy and paste information from ChatGPT but critically evaluated its content and identified a bias. This is an important skill that most people lack while engaging with AI tools.</p>
+            <p>Now it is safe to use funny facts in your presentation. Don't blindly use information from chatbots next time. So, good luck with your presentation!</p>
+          </div>
+        </div>
+        <div class="congrats-actions">
+          <div class="congrats-action">
+            <button class="btn" id="reviewBtn">Review</button>
+            <div class="cap">Look back at your steps without changing anything</div>
+          </div>
+          <div class="congrats-action">
+            <button class="btn orange" id="congratsRetryBtn">Retry</button>
+            <div class="cap">Start the whole task over from scratch</div>
+          </div>
+          <div class="congrats-action">
+            <button class="btn green" id="congratsFinishBtn">Finish</button>
+            <div class="cap">Wrap up and close out the task</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+</div>
+
+<div class="modal-overlay" id="feedbackModal">
+  <div class="modal-card">
+    <h3 id="feedbackTitle"></h3>
+    <p id="feedbackBody"></p>
+    <button class="btn orange" id="retryBtn" style="display:none;">Retry</button>
+    <button class="btn green" id="finishBtn" style="display:none;">Finish</button>
+  </div>
 </div>
 
 <div class="modal-overlay" id="finishModal">
@@ -419,6 +642,20 @@
     <h3>Great work!</h3>
     <p>You picked out the response that was actually biased, and your reasoning held up against the group discussion. You can now move on to the next task.</p>
     <button class="btn green" id="closeModalBtn">Close</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="hintModal">
+  <div class="modal-card">
+    <div class="modal-icon" style="background:var(--purple-soft); color:var(--purple-ink); border-color:var(--purple-border);">💡</div>
+    <h3>Biased responses…</h3>
+    <ul class="hint-list">
+      <li>Include stereotypes</li>
+      <li>Present one-sided viewpoints</li>
+      <li>Miss alternative perspectives</li>
+      <li>Use loaded or judgmental words</li>
+    </ul>
+    <button class="btn" id="closeHintBtn">Close</button>
   </div>
 </div>
 
@@ -472,10 +709,15 @@
     ]
   };
 
+  var CHAT_READ_PROMPT = "Read all the facts generated by AI chatbot about Uzbekistan as you plan to use them in your presentation. What is so funny about them? After that, continue to the next page.";
+
   var chosenAnswer = null;   // 1, 2, or 3
-  var factBubbles = {};      // response number -> bubble element
+  var factBubbles = {};      // chat page (read-only) — response number -> bubble element
+  var factBubblesReview = {};// chat-review page (selectable) — response number -> bubble element
   var discussStarted = false;
-  var answerLocked = false;  // true once the learner moves past the chat stage
+  var answerLocked = false;  // true once the learner locks in a choice on the chat-review page
+  var typingStarted = false;
+  var chatReviewRendered = false;
 
   // ---------- Sound ----------
   var audioCtx = null;
@@ -500,10 +742,32 @@
       osc.start(t); osc.stop(t + 0.16);
     }catch(e){}
   }
+  function playSend(){
+    if(!audioCtx) return;
+    try{
+      var t = audioCtx.currentTime;
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(480, t);
+      osc.frequency.exponentialRampToValueAtTime(780, t + 0.10);
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.05, t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(t); osc.stop(t + 0.17);
+    }catch(e){}
+  }
 
   // ---------- Helpers ----------
   function $(id){ return document.getElementById(id); }
-  function scrollToBottom(el){ el.scrollTop = el.scrollHeight; }
+  function scrollToBottom(el){
+    var sc = (el.closest && el.closest('.chat-window')) || el;
+    sc.scrollTop = sc.scrollHeight;
+  }
+  function escapeHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
 
   function addMessage(container, opts){
     var msg = document.createElement('div');
@@ -553,10 +817,14 @@
   }
 
   function setStep(n){
-    var pct = Math.max(0, Math.min(3, n)) / 3 * 100;
+    var TOTAL_STEPS = 8;
+    var pct = Math.max(0, Math.min(TOTAL_STEPS, n)) / TOTAL_STEPS * 100;
     $('progressFill').style.width = pct + '%';
-    var labels = {1:'Step 1 of 3 — Chat', 2:'Step 2 of 3 — Discuss', 3:'Step 3 of 3 — Evaluate'};
-    $('progressLabel').textContent = labels[n] || '';
+    var names = {
+      1:'Scenario', 2:'Chat', 3:'Nice Work', 4:'Chat Review',
+      5:'Nice Work', 6:'Review', 7:'Evaluate', 8:'Complete'
+    };
+    $('progressLabel').textContent = n > 0 ? ('Step ' + n + ' of ' + TOTAL_STEPS + ' — ' + (names[n] || '')) : '';
   }
 
   function showScreen(id){
@@ -565,22 +833,56 @@
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
-  // ---------- INTRO ----------
+  // ---------- INTRO -> SCENARIO ----------
   $('startBtn').addEventListener('click', function(){
-    initAudio();
     $('progressWrap').classList.add('show');
     setStep(1);
+    showScreen('screen-scenario');
+  });
+  $('backToIntroFromScenario').addEventListener('click', function(){
+    $('progressWrap').classList.remove('show');
+    showScreen('screen-intro');
+  });
+
+  // ---------- SCENARIO -> CHAT ----------
+  $('jumpToChatBtn').addEventListener('click', function(){
+    initAudio();
+    setStep(2);
     showScreen('screen-chat');
     runChatIntro();
+  });
+  $('backToScenario').addEventListener('click', function(){
+    setStep(1);
+    showScreen('screen-scenario');
   });
 
   // ---------- CHAT STAGE ----------
   var chatWindow = $('chatWindow');
+  var chatMessages = $('chatMessages');
+  var chatInput1 = $('chatInput1');
+  var chatSend1 = $('chatSend1');
+  var TYPED_QUESTION = "Tell me three funny facts about Uzbekistan people";
+
+  function startTypingAnimation(){
+    chatInput1.value = '';
+    chatSend1.disabled = true;
+    var i = 0;
+    var timer = setInterval(function(){
+      chatInput1.value += TYPED_QUESTION.charAt(i);
+      i++;
+      if(i >= TYPED_QUESTION.length){
+        clearInterval(timer);
+        chatSend1.disabled = false;
+      }
+    }, 38);
+  }
 
   function chatSend1Handler(){
+    playSend();
+    chatWindow.classList.remove('centered');
     $('chatComposer1').style.display = 'none';
-    addMessage(chatWindow, {
-      role:'user', who:'You', text:$('chatInput1').value,
+    addMessage(chatMessages, {
+      role:'user', who:'You', text: chatInput1.value,
       avatarClass:'user', avatarLabel:'You'
     });
 
@@ -588,17 +890,18 @@
     var i = 0;
     function next(){
       if(i >= order.length){
-        revealSelectionPrompt();
+        revealChatInstruction();
         return;
       }
       var n = order[i++];
-      var typing = addTyping(chatWindow, 'ai', 'AI');
+      var typing = addTyping(chatMessages, 'ai', 'AI');
       setTimeout(function(){
         typing.remove();
-        var result = addMessage(chatWindow, {
+        var result = addMessage(chatMessages, {
           role:'ai', who:'AI Chatbot', avatarClass:'ai', avatarLabel:'AI',
           html: '<strong>' + FACTS[n].title + '.</strong> ' + FACTS[n].text
         });
+        playPop();
         factBubbles[n] = result.bubble;
         setTimeout(next, 1400);
       }, 1100);
@@ -606,44 +909,136 @@
     next();
   }
 
-  function revealSelectionPrompt(){
-    $('promptBox').classList.add('show');
+  // The chat page is read-only — no selection happens here, just an
+  // instruction card, then the learner continues on.
+  function revealChatInstruction(){
+    $('promptBoxText').textContent = CHAT_READ_PROMPT;
+    $('chatInstructionBlock').style.display = 'flex';
+  }
+
+  // ---------- CHAT REVIEW STAGE (facts shown again, now selectable) ----------
+  var chatReviewWindow = $('chatReviewWindow');
+
+  function renderChatReview(){
+    addMessage(chatReviewWindow, {
+      role:'user', who:'You', text: TYPED_QUESTION,
+      avatarClass:'user', avatarLabel:'You'
+    });
     [1,2,3].forEach(function(n){
-      var bubble = factBubbles[n];
-      bubble.classList.add('selectable');
-      bubble.addEventListener('click', function(){ selectResponse(n); });
+      var result = addMessage(chatReviewWindow, {
+        role:'ai', who:'AI Chatbot', avatarClass:'ai', avatarLabel:'AI',
+        html: '<strong>' + FACTS[n].title + '.</strong> ' + FACTS[n].text
+      });
+      result.bubble.classList.add('selectable');
+      result.bubble.addEventListener('click', function(){ selectReviewResponse(n); });
+      factBubblesReview[n] = result.bubble;
     });
   }
 
-  function selectResponse(n){
+  function ensureChatReviewRendered(){
+    if(chatReviewRendered) return;
+    chatReviewRendered = true;
+    renderChatReview();
+  }
+
+  function selectReviewResponse(n){
     if(answerLocked) return;
+    if(chosenAnswer !== n){
+      // the pick changed (or is being made for the first time) — make sure any
+      // previously generated discussion/comments don't linger with the old answer
+      discussWindow.innerHTML = '';
+      discussStarted = false;
+    }
     chosenAnswer = n;
     [1,2,3].forEach(function(k){
-      factBubbles[k].classList.toggle('selected', k === n);
+      factBubblesReview[k].classList.toggle('selected', k === n);
     });
-    $('pickConfirmText').textContent = 'You selected: "' + FACTS[n].title + '"';
-    $('pickConfirm').classList.add('show');
-    $('chatNextWrap').classList.remove('hidden');
+    // no confirmation message — just reveal the Continue button
+    $('chatReviewNextWrap').classList.remove('hidden');
   }
 
+  $('backToPraiseFromChatReview').addEventListener('click', function(){
+    setStep(3);
+    showScreen('screen-praise');
+  });
+
+  $('chatReviewNextBtn').addEventListener('click', function(){
+    answerLocked = true;
+    chatReviewWindow.classList.add('locked');
+    setStep(5);
+    showScreen('screen-final-praise');
+  });
+
+  $('backToChatReviewFromFinalPraise').addEventListener('click', function(){
+    setStep(4);
+    showScreen('screen-chat-review');
+  });
+
   function runChatIntro(){
-    $('chatSend1').addEventListener('click', chatSend1Handler, {once:true});
+    if(!typingStarted){
+      typingStarted = true;
+      startTypingAnimation();
+    }
+    chatSend1.addEventListener('click', chatSend1Handler, {once:true});
   }
 
   $('chatNextBtn').addEventListener('click', function(){
-    answerLocked = true;
-    chatWindow.classList.add('locked');
-    $('promptBox').innerHTML = '<span class="ic">🔒</span><span>Your answer is locked in — you can review it below, but it can no longer be changed.</span>';
+    setStep(3);
+    showScreen('screen-praise');
+  });
 
+  $('backToChatFromPraise').addEventListener('click', function(){
     setStep(2);
+    showScreen('screen-chat');
+  });
+
+  // ---------- NICE WORK #1 -> CHAT REVIEW ----------
+  $('letsCheckBtn').addEventListener('click', function(){
+    setStep(4);
+    showScreen('screen-chat-review');
+    ensureChatReviewRendered();
+  });
+
+  // ---------- FINAL PRAISE -> CHOICE ----------
+  $('readyToExplainBtn').addEventListener('click', function(){
+    setStep(6);
+    showScreen('screen-choice');
+    $('choiceTitle').textContent = FACTS[chosenAnswer].title;
+    $('choiceText').textContent = FACTS[chosenAnswer].text;
+  });
+
+  // ---------- CHOICE / REVIEW STAGE ----------
+  $('backToFinalPraiseFromChoice').addEventListener('click', function(){
+    setStep(5);
+    showScreen('screen-final-praise');
+  });
+
+  $('explainBtn').addEventListener('click', function(){
+    setStep(7);
+    showScreen('screen-evaluate');
+    $('evalFactTitle').textContent = FACTS[chosenAnswer].title;
+    renderHighlightable(chosenAnswer);
+  });
+
+  $('verifyBtn').addEventListener('click', function(){
+    setStep(6);
     showScreen('screen-discuss');
     $('chosenTitle').textContent = FACTS[chosenAnswer].title;
     $('chosenText').textContent = FACTS[chosenAnswer].text;
     runDiscuss();
   });
 
+  $('changeBtn').addEventListener('click', function(){
+    answerLocked = false;
+    chatReviewWindow.classList.remove('locked');
+    $('chatReviewNextWrap').classList.add('hidden');
+    setStep(4);
+    showScreen('screen-chat-review');
+  });
+
   // ---------- DISCUSS STAGE ----------
   var discussWindow = $('discussWindow');
+
 
   function runDiscuss(){
     if(discussStarted) return;
@@ -662,39 +1057,49 @@
             avatarLabel: student.name[0], text: lines[i]
           });
           playPop();
-          if(i === STUDENTS.length - 1){
-            $('discussNextWrap').classList.remove('hidden');
-          }
         }, 850);
       }, delay);
       delay += 1650;
     });
   }
 
-  $('discussNextBtn').addEventListener('click', function(){
-    setStep(3);
-    showScreen('screen-evaluate');
-  });
-
-  // ---------- BACK NAVIGATION ----------
-  $('backToIntro').addEventListener('click', function(){
-    $('progressWrap').classList.remove('show');
-    showScreen('screen-intro');
-  });
-  $('backToChat').addEventListener('click', function(){
-    setStep(1);
-    showScreen('screen-chat');
-  });
-  $('backToDiscuss').addEventListener('click', function(){
-    setStep(2);
-    showScreen('screen-discuss');
+  $('backToChoiceFromDiscuss').addEventListener('click', function(){
+    setStep(6);
+    showScreen('screen-choice');
   });
 
   // ---------- EVALUATE STAGE ----------
+  $('backToChoiceFromEvaluate').addEventListener('click', function(){
+    setStep(6);
+    showScreen('screen-choice');
+  });
+
+  function renderHighlightable(n){
+    var text = FACTS[n].text;
+    var sentences = text.split(/(?<=[.!?])\s+/);
+    var html = sentences.map(function(s){
+      return '<span class="hl-sentence">' + escapeHtml(s) + '</span>';
+    }).join(' ');
+    $('evalFactText').innerHTML = html;
+    var spans = $('evalFactText').querySelectorAll('.hl-sentence');
+    spans.forEach(function(span){
+      span.addEventListener('click', function(){
+        span.classList.toggle('hl');
+      });
+    });
+  }
+
+  $('hintBtn').addEventListener('click', function(){
+    $('hintModal').classList.add('show');
+  });
+  $('closeHintBtn').addEventListener('click', function(){
+    $('hintModal').classList.remove('show');
+  });
+
   var evalText = $('evalText');
   var wordCountEl = $('wordCount');
   var submitBtn = $('submitBtn');
-  var MIN_WORDS = 20;
+  var MIN_WORDS = 30;
 
   function countWords(str){
     var trimmed = str.trim();
@@ -718,7 +1123,7 @@
     if(n === 1){
       return {
         correct:true,
-        title: "Something to think about",
+        title: "Nice work — that's the one!",
         body: "Notice how the group reacted to this response — some people confirmed parts of it, while others pushed back on the same details. When a claim only earns partial, divided agreement like that, it's often a sign it has been stretched into a generalization rather than being simply true."
       };
     }
@@ -738,7 +1143,7 @@
     var fb = buildFeedback(chosenAnswer);
     $('feedbackTitle').textContent = fb.title;
     $('feedbackBody').textContent = fb.body;
-    $('feedback').classList.add('show');
+    $('feedbackModal').classList.add('show');
 
     if(fb.correct){
       $('finishBtn').style.display = 'inline-block';
@@ -748,8 +1153,31 @@
   });
 
   $('finishBtn').addEventListener('click', function(){
+    $('feedbackModal').classList.remove('show');
+    setStep(8);
+    showScreen('screen-congrats');
+  });
+
+  $('backToEvaluateFromCongrats').addEventListener('click', function(){
+    setStep(7);
+    showScreen('screen-evaluate');
+  });
+
+  var reviewMode = false;
+
+  $('reviewBtn').addEventListener('click', function(){
+    reviewMode = true;
+    $('changeBtn').parentElement.style.display = 'none';
+    setStep(6);
+    showScreen('screen-choice');
+  });
+
+  $('congratsRetryBtn').addEventListener('click', resetTask);
+
+  $('congratsFinishBtn').addEventListener('click', function(){
     $('finishModal').classList.add('show');
   });
+
   $('closeModalBtn').addEventListener('click', function(){
     $('finishModal').classList.remove('show');
   });
@@ -759,18 +1187,28 @@
   function resetTask(){
     chosenAnswer = null;
     factBubbles = {};
+    factBubblesReview = {};
     discussStarted = false;
     answerLocked = false;
-    chatWindow.innerHTML = '';
+    typingStarted = false;
+    chatReviewRendered = false;
+    reviewMode = false;
+
+    chatMessages.innerHTML = '';
     chatWindow.classList.remove('locked');
+    chatWindow.classList.add('centered');
+    $('chatComposer1').style.display = 'flex';
+    chatInput1.value = '';
+    chatSend1.disabled = true;
+
+    chatReviewWindow.innerHTML = '';
+    chatReviewWindow.classList.remove('locked');
+    $('chatReviewNextWrap').classList.add('hidden');
+
     discussWindow.innerHTML = '';
 
-    $('chatComposer1').style.display = 'flex';
-    $('promptBox').innerHTML = '<span class="ic">❓</span><span>Which response is more likely to be biased? Tap a response above to select it.</span>';
-    $('promptBox').classList.remove('show');
-    $('pickConfirm').classList.remove('show');
-    $('chatNextWrap').classList.add('hidden');
-    $('discussNextWrap').classList.add('hidden');
+    $('chatInstructionBlock').style.display = 'none';
+    $('changeBtn').parentElement.style.display = '';
 
     evalText.value = '';
     evalText.disabled = false;
@@ -779,10 +1217,11 @@
     submitBtn.disabled = true;
     $('submitWrap').style.display = 'flex';
 
-    $('feedback').classList.remove('show');
+    $('feedbackModal').classList.remove('show');
     $('retryBtn').style.display = 'none';
     $('finishBtn').style.display = 'none';
     $('finishModal').classList.remove('show');
+    $('hintModal').classList.remove('show');
 
     $('progressWrap').classList.remove('show');
     setStep(0);
